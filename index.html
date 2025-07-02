@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday - Aether</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-b from-pink-100 to-yellow-100 min-h-screen overflow-hidden relative">
+
+  <!-- 背景音乐 -->
+<audio id="birthdayMusic" autoplay>
+  Your browser does not support the audio element.
+</audio>
+
+<!-- 静音切换按钮 -->
+<button id="muteToggle"
+        class="fixed top-4 left-4 z-50 bg-white/70 text-gray-800 px-3 py-1 rounded-full shadow hover:bg-gray-100 transition">
+  🔇
+</button>
+
+<!-- SP赏彩蛋按钮（使用纯图片，默认隐藏） -->
+<button id="spButton"
+        class="hidden fixed bottom-16 right-16 z-50 w-24 h-24 p-0 m-0 bg-transparent border-none shadow-none hover:scale-110 transition-transform duration-300"
+        title="点击开启SP赏">
+  <img src="assets/sp_egg.png" alt="SP彩蛋" class="w-full h-full object-contain pointer-events-none" />
+</button>
+
+  <!-- 主标题 -->
+  <div class="text-center mt-10">
+    <h1 class="text-5xl font-bold text-pink-600 drop-shadow">🎉 Happy Birthday 🎉</h1>
+    <p class="text-lg text-gray-700 mt-2">designed for Aether's 26th year</p>
+  </div>
+
+  <!-- 按钮布局 -->
+  <div class="grid grid-cols-3 grid-rows-3 gap-6 h-[60vh] w-full max-w-4xl mx-auto mt-16 relative">
+    <button class="prize-btn bg-blue-200 hover:bg-blue-400" data-rank="E">E赏</button>
+    <div></div>
+    <button class="prize-btn bg-green-200 hover:bg-green-400" data-rank="D">D赏</button>
+    <div></div>
+    <button class="prize-btn bg-yellow-200 hover:bg-yellow-400" data-rank="A">A赏</button>
+    <div></div>
+    <button class="prize-btn bg-purple-200 hover:bg-purple-400" data-rank="C">C赏</button>
+    <div></div>
+    <button class="prize-btn bg-red-200 hover:bg-red-400" data-rank="B">B赏</button>
+  </div>
+
+  <!-- 奖品弹窗 -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center relative max-w-md w-full">
+      <img id="prizeImage" src="" alt="Prize" class="w-full h-auto mb-4 rounded">
+      <button onclick="closeModal()" class="mt-2 px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600">关闭</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
