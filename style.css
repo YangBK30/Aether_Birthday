@@ -11,3 +11,11 @@
   color: #999;
   cursor: not-allowed;
 }
+
+/* Footer styles */
+    footer {
+      text-align: center;
+      margin-top: 8rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
