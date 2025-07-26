@@ -100,6 +100,9 @@ const spBtn = document.getElementById("spButton");
 
 // 监听 SP 彩蛋按钮点击事件
 spBtn.addEventListener("click", () => {
+  audio.muted = true; // 点击 SP 彩蛋时静音音乐
+  audio.pause(); // 暂停音乐
+  muteBtn.textContent = "🔇";
   playSPVideo(); // 播放隐藏视频
 });
 
@@ -114,10 +117,25 @@ function playSPVideo() {
   video.autoplay = true;
   video.className = "w-full max-w-2xl rounded";
 
+  const backBtn = document.createElement("button");
+  backBtn.textContent = "返回活动页面";
+  backBtn.className = "mt-4 px-4 py-2 bg-white text-black rounded shadow hover:bg-gray-200";
+
+  backBtn.addEventListener("click", () => {
+    document.body.removeChild(videoOverlay);
+    if (audio.muted && hasStarted) {
+      audio.play().catch(() => {});
+    }
+  });
+
   videoOverlay.appendChild(video);
+  videoOverlay.appendChild(backBtn);
+  document.body.appendChild(videoOverlay);
+
+  /*videoOverlay.appendChild(video);
   document.body.appendChild(videoOverlay);
 
   video.addEventListener("ended", () => {
     document.body.removeChild(videoOverlay);
-  });
+  });*/
 }
